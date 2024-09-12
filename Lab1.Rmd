@@ -1,0 +1,317 @@
+---
+title: "Lab1"
+author: "Adrian Salazar"
+date: "2024-09-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Chapter 1 Summary-
+
+
+
+### Treatment Group:
+The group given the treatment or procedure.
+
+### Control Group:
+The group given nothing or a placebo.
+
+
+### Statistical Signigicance:
+To determine if the difference is statistically significant,Statistical tools are used to evaluate whether the observed difference is likely due to random variation or a real effect.
+
+
+### Generilization:
+The study's result may not be generalizable to the entire populations due to the study's specific design. 
+
+### Data Organization
+**Data Matrix:** 
+A table where rows represent cases (e.g., loans, patients) and columns represent variables (e.g., interest rates, medical conditions).
+
+**Types of Variables:**
+
+**Numerical:** Can be measured and averaged (e.g., unemployment rate).
+
+**Categorical:** Represents categories (e.g., state names, education levels).
+Ordinal: Categorical with a natural order (e.g., education levels).
+
+### Association vs. Causation:
+
+**Association:** 
+When two variables show a connection (e.g., higher income may be associated with population growth).
+
+**Causation:**
+To determine if one variable causes changes in another, experiments are needed.
+
+### Data Collection Methods
+**Observational Studies:**
+Researchers observe without intervening. These can show associations but not causal relationships.
+
+**Experiments:**
+Researchers intervene and assign treatments to test causal relationships. Randomized experiments are the gold standard.
+
+**Sampling Techniques:**
+
+- **Simple Random Sampling:** Each case has an equal chance of selection.
+
+- **Stratified Sampling:** Population divided into strata, then sampled within each stratum.
+
+- **Cluster Sampling:** Population divided into clusters; a sample of clusters is selected.
+
+- **Multistage Sampling:** Combines sampling methods at various stages.
+
+### Experimental Design Principles
+
+**Controlling:** Ensuring only the treatment effects are measured by controlling other variables.
+
+**Randomization:** Assigning cases randomly to groups to prevent bias.
+
+**Replication:** Using a large sample or repeating studies to verify results.
+
+**Blocking:** Grouping similar cases into blocks and randomizing within each block to control for variables.
+
+### Blinding in Experiments
+
+**Blind Study:** Participants do not know their group assignment to prevent bias.
+
+**Double-Blind Study:** Both participants and researchers are unaware of group assignments to avoid bias from both sides.
+
+**Placebo Effect:** The phenomenon where participants experience improvements due to the belief they are receiving treatment.
+
+\newpage
+
+# Chapter 2 Summary-
+
+**Scatterplots:** Used for visualizing the relationship between two numerical variables. They show each case as a point in a two-dimensional space, and can reveal patterns, trends, or non-linear relationships.
+
+**Dot Plots:** Useful for displaying the distribution of a single numerical variable. Each observation is represented by a dot, which can be stacked if multiple observations have the same value.
+
+**Histograms:** Display the distribution of a numerical variable by grouping data into bins and plotting the count or frequency of observations within each bin. They help identify the shape of the data distribution (e.g., skewness, modality).
+
+**Skewness:** A distribution is right skewed if it has a long tail on the right side, and left skewed if it has a long tail on the left side. Symmetric distributions have roughly equal tails on both sides.
+
+### Mean and Variability:
+
+**Mean:** The average value, computed as the sum of all observations divided by the number of observations. It represents the central point of the distribution.
+
+**Variance:** Measures the average squared deviation from the mean. The square root of the variance is the standard deviation, which provides a sense of the average distance of observations from the mean.
+
+**Standard Deviation:** Helps understand the spread of the data; roughly 68% of data fall within one standard deviation of the mean, and about 95% within two standard deviations.
+
+### Box Plots:
+
+**Median:** The middle value when data is sorted.
+
+**Interquartile Range (IQR):** The range between the first quartile (25th percentile) and third quartile (75th percentile), representing the middle 50% of the data.
+
+**Whiskers:** Extend from the quartiles to capture data within 1.5 × IQR from the quartiles. Points beyond this range are considered outliers.
+
+**Transformations:** Applying transformations like logarithms can help address skewness and outliers, making data more suitable for modeling and analysis.
+
+### Categorical Data Summarization
+
+**Contingency Tables:** Summarize the relationship between two categorical variables, showing counts of occurrences for each combination of categories.
+
+**Bar Plots:** Display counts or proportions of each category within a single categorical variable. Proportional bar plots show the fraction of observations within each category.
+
+**Stacked and Side-by-Side Bar Plots:** Compare categorical variables across different groups. Stacked bar plots show the composition of categories within each group, while side-by-side bar plots compare categories directly.
+
+**Mosaic Plots:** Visualize the relationship between two categorical variables by dividing a rectangle into areas proportional to the counts in each category combination.
+
+**Pie Charts:** Show the relative proportions of categories within a single variable. While useful for high-level overviews, bar plots are often preferred for detailed comparisons.
+
+### Comparing Groups
+
+**Side-by-Side Box Plots:** Compare distributions of a numerical variable across groups. Each box plot represents a group, allowing comparison of medians, quartiles, and outliers.
+
+**Hollow Histograms:** Compare numerical distributions across groups by overlaying histograms' outlines on the same plot.
+
+### Purpose of Hypothesis Testing:
+To determine if an observed effect or difference in data is likely due to chance or if it indicates a real effect.
+
+**Formulating Hypotheses:**
+Null Hypothesis (H0): Assumes no effect or no difference. It suggests that any observed difference is due to random chance.
+
+**Alternative Hypothesis (HA):** Proposes that there is an effect or difference, and the observed data are not due to chance alone.
+
+### Assessing the Null Hypothesis:
+Evaluate if the observed data are consistent with H0.
+If the observed effect is consistent with what would be expected under H0, the null hypothesis is not rejected.
+Simulation Approach:
+
+### Objective: 
+To assess if the observed effect or difference could occur by random chance under the null hypothesis.
+
+### Method: 
+Generate multiple simulated datasets assuming H0 is true and compare the observed effect to the distribution of effects in the simulations.
+### Interpreting Simulation Results:
+
+**Common Results:** If the observed effect is frequently seen in simulations, it suggests that the effect could be due to chance (supporting H0).
+
+**Rare Results:** If the observed effect is rarely seen, it suggests that the effect may be real and not due to chance (supporting HA).
+
+**Drawing Conclusions:**
+Reject H0: If there is strong evidence against H0 based on the simulations, conclude that the observed effect is likely real.
+
+**Fail to Reject H0:** If there is not strong evidence against H0, conclude that there is not enough evidence to support the presence of a real effect.
+
+**Statistical Inference:**
+
+**Objective:** To make informed decisions about the presence of effects or differences based on data and models.
+
+**Tools:** Statistical tests and simulations help assess the likelihood of observed results occurring by chance.
+
+### Error Considerations:
+
+**Type I Error:** Incorrectly rejecting H0 when it is true (false positive).
+
+**Type II Error:** Failing to reject H0 when HA is true (false negative).
+
+### Future Topics:
+
+**Model Selection:** Methods for choosing the best statistical model based on data.
+
+**Probability and Theory:** Fundamental concepts for understanding and applying statistical inference.
+\newpage
+# Lab One Exercise Chapter 1
+```{r, include=FALSE}
+source("http://www.openintro.org/stat/data/arbuthnot.R")
+```
+## Exercise 1
+
+### What command would you use to extract just the counts of girls baptized? Try it!
+
+The command to use would be:
+```{r echo=TRUE,results='hide'}
+arbuthnot$girls
+```
+
+## Exercise 2
+
+### Is there an apparent trend in the number of girls baptized over the years? How would you describe it?
+
+An Apparent trend in the number of girls baptized is that after 1660 the number of girls baptized continued to increase. I would describe it as a postive relation between the year and number of baptized girls after 1660.
+
+## Exercise 3
+
+### Now, make a plot of the proportion of boys over time. What do you see? 
+
+I can see that the number of baptized boys also increase after 1660 but has more dips than the girls' chart.
+```{r echo=FALSE, results='hide'}
+plot(arbuthnot$year,arbuthnot$boys, type = "l")
+```
+\newpage
+# Lab One OnYourOwn Chapter 1
+```{r, include=FALSE}
+source("http://www.openintro.org/stat/data/present.R")
+```
+
+### What years are included in this data set? What are the dimensions of the data frame and what are the variable or column names?
+
+The data set has the years from 1940 to 2002. The dimensions of the data frame are 63 rows with 3 columns. The column names are "year", "boys", and "girls".
+
+### How do these counts compare to Arbuthnot’s? Are they on a similar scale?
+
+
+The counts are much higher but are on a similar scale as arbuthnot's.
+
+### Make a plot that displays the boy-to-girl ratio for every year in the data set. What do you see? Does Arbuthnot’s observation about boys being born in greater proportion than girls hold up in the U.S.? Include the plot in your response.
+
+
+I see that Arbuthnot's observation about boys being born in greater proportion to have some truth to it, as the dots representing the boys and girls that year tend to be further right than they are further up vertically meaning that there are more boys that year.
+```{r echo=FALSE}
+plot(x = present$boys, y = present$girls)
+```
+
+
+### In what year did we see the most total number of births in the U.S.?
+
+We saw the most birth in the year 1961, totaling at 4268326.
+
+\newpage
+
+# Lab One Exercise Chapter 2
+```{r,include=FALSE}
+source("http://www.openintro.org/stat/data/cdc.R")
+```
+### How many cases are there in this data set? How many variables? For each variable, identify its data type (e.g. categorical, discrete).
+
+There are 20000 cases in the data set with 9 variables. Exerany, hlthplan, smoke100 are all numerical discrete variables, while height, weight, wtdesire, age are all numerical continous variables. genhlth and gender are both categorical variables.
+
+### Create a numerical summary for height and age, and compute the interquartile range for each. Compute the relative frequency distribution for gender and exerany. How many males are in the sample? What proportion of the sample reports being in excellent health?
+
+A numerical summary for height is :
+```{r echo=FALSE}
+summary(cdc$height)
+```
+With the Interquartile range being 26.
+
+A numerical summary for age is :
+```{r echo=FALSE}
+summary(cdc$age)
+```
+With the Interquartile range being 6.
+
+The relative frequency distribution for Gender is :
+```{r echo=FALSE}
+table(cdc$gender)/20000
+```
+The relative frequency distribution for Exerany is :
+```{r echo=FALSE}
+table(cdc$exerany)/20000
+```
+
+There are 9569 males in the sample and 23% of the sample reports being in excellent health.
+
+### What does the mosaic plot reveal about smoking habits and gender?
+
+The mosaic plot reveals that more males have smoking habits than do females in the sample.
+
+### Create a new object called under23_and_smoke that contains all observations of respondents under the age of 23 that have smoked 100 cigarettes in their lifetime. Write the command you used to create the new object as the answer to this exercise.
+The command used is :
+```{r,results='hide'}
+under23_and_smoke <- subset(cdc, age < 23 & smoke100 == 1)
+```
+
+### What does this box plot show? Pick another categorical variable from the data set and see how it relates to BMI. List the variable you chose, why you might think it would have a relationship to BMI, and indicate what the figure seems to suggest.
+
+The box plot between BMI and genhlth compare the numerical summaries of the sample's BMI for each level of genhlth showing their association. I chose the variable smoke100 since I believed it would have a relation to BMI as smokers would have deteriorating bodies. The figure/boxplot would suggest that there is no statistical difference between those who smoke and don't smoke and their BMI.
+
+\newpage
+
+# Lab One OnYourOwn Chapter 2
+
+### Make a scatterplot of weight versus desired weight. Describe the relationship between these two variables.
+```{r echo=FALSE}
+plot(cdc$weight,cdc$wtdesire)
+```
+
+The relationship between the two variables is that those who's weight is 200 or less typically desire a weight that is around their actual while those above 200 have a desired weight that is lower than their actual weight.
+
+### Let’s consider a new variable: the difference between desired weight (wtdesire) and current weight (weight). Create this new variable by subtracting the two columns in the data frame and assigning them to a new object called wdiff.
+```{r}
+wdiff <- (cdc$wtdesire - cdc$weight)
+```
+
+### What type of data is wdiff? If an observation wdiff is 0, what does this mean about the person’s weight and desired weight. What if wdiff is positive or negative?
+
+wdiff is an integer and integers are usually numerical discrete. If wdiff is 0 that means the individuals desired weight and current weight are the same. If wdiff is positive it means that their desired weight is more than their current weight and if its negative it means that their desired weight is less than their current weight.
+
+### Describe the distribution of wdiff in terms of its center, shape, and spread, including any plots you use. What does this tell us about how people feel about their current weight?
+
+```{r echo=FALSE}
+hist(wdiff)
+```
+
+The distribution of wdiff has the center/mean at around -14, with a non-symmetric unimodal, and a narrow distribution for its spread. This tells me that most people feel that they would like their weight to be smaller but still around their current weight and not by large margins.
+
+### Using numerical summaries and a side-by-side box plot, determine if men tend to view their weight differently than women.
+
+Men do tend to view their weight differently than women, the min desired weight for males is 77 while it is 68 for female and the max desired weight for men is 680 while its 350 for females. The men also have a higher median and mean when it comes to desired weight than females. When the difference between each genders weight and desired weight are put side by side, it is mostly similar but males tend to have more cases that want more weight. With this info its safe to assume that males tend to want a bit more body weight than females.
+
+### Now it’s time to get creative. Find the mean and standard deviation of weight and determine what proportion of the weights are within one standard deviation of the mean.
+
+The mean of weight is 169.7 and the standard deviation is 40.1. There is 71% of weights that are within one standard deviation of the mean.
