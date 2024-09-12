@@ -1,1 +1,136 @@
-**Put work in here**
+---
+title: "Lab 01"
+author: "Harrison Battle"
+date: "09/12/2024"
+output:
+  html_document:
+    theme: darkly
+---
+
+_____________________________________________________________________________________________________________________\
+
+
+```{r setup, include=FALSE, results='hide'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE, results='hide'}
+source("http://www.openintro.org/stat/data/arbuthnot.R")
+```
+
+```{r, include=FALSE, results='hide'}
+source("http://www.openintro.org/stat/data/present.R")
+```
+
+# **Chapter 1**
+
+## **Exercise Problems:**
+
+### **Exercise 1:**
+
+**The command needed to extract just the counts of girls baptized from the given data set would be:**
+
+```{r echo=TRUE, results='hide'}
+arbuthnot$girls
+```
+
+### **Exercise 2:**
+
+**The trend occurs after the year 1660 where there is a steady increase in the amount of girls baptized. This could be a result of many things including possible religious beliefs in an area or law set in place.**
+
+### **Exercise 3:**
+
+**The trend is same to that of the girls, after the year 1660 there is a steady increase in the number of boys baptized.**
+
+```{r echo=FALSE, results='hide'}
+plot(x = arbuthnot$year, y = arbuthnot$boys, type = "l")
+```
+
+## **On Your Own Problems:**
+
+### **Problem 1:**
+
+**The years included in the new data set are from 1940 to 2002. The columns include either the boys or girls information on how many were baptized and the years. Which can be obtained by entering the following commands: **
+
+```{r echo=TRUE, results='hide'}
+present$year
+names(present)
+```
+
+### **Problem 2:**
+
+**No, the counts are very different. The data set in arbuthnot included data in the thousands while the data in the present set is in the millions.**
+
+### **Problem 3:**
+
+**The ratio of boys to girls birthed over the years actually decreases slowly over time as that number becomes more and more even throughout the years.**
+
+```{r echo=FALSE, results='hide'}
+present$ratio <- present$boys / present$girls
+
+plot(present$year, present$ratio, type = "l")
+
+```
+
+### **Problem 4:**
+
+**The year with the most births was in 1961.**
+
+```{r, include=FALSE, results='hide'}
+source("http://www.openintro.org/stat/data/cdc.R")
+```
+
+_____________________________________________________________________________________________________________________\
+
+# **Chapter 2**
+
+## **Exercise Problems:**
+
+### **Exercise 1:**
+
+***Cases:***\
+**There is 20,000 cases in the data set**\
+\
+***Variables:***\
+**1. *genhlth* (nominal)**\
+**2. *exerany* (discrete)**\
+**3. *hlthplan* (discrete)**\
+**4. *smoke100* (discrete)**\
+**5. *height* (continous)**\
+**6. *weight* (continous)**\
+**7. *wtdesire* (discrete)**\
+**8. *age* (continous)**\
+**9. *gender* (nominal)**\
+
+### **Exercise 2:**
+
+**Need to do**
+
+### **Exercise 3:**
+
+```{r echo=FALSE, results='hide'}
+mosaicplot(table(cdc$gender, cdc$smoke100))
+```
+
+### **Exercise 4:**
+
+**This command will give you smokers under the age of 23 and have smoked more than 100 packs in their life time.**
+
+```{r echo=TRUE, results='hide'}
+under23_and_smoke <- subset(cdc, age < 23 & smoke100 == 1)
+```
+
+### **Exercise 5:**
+
+**Need to do**
+
+## **On Your Own Problems:**
+
+### **Problem 1:**
+
+**Using the following command will give you a scatterplot of the weight versus desired weight data:**
+
+```{r echo=TRUE, results='hide'}
+plot(x = cdc$weight, y = cdc$wtdesire)
+```
+
