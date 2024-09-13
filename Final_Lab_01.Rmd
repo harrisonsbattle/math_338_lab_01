@@ -1,0 +1,241 @@
+---
+title: "Lab 01"
+author: "Group 7"
+date: "09/12/2024"
+output:
+  html_document:
+    theme: cerulean
+---
+
+_____________________________________________________________________________________________________________________\
+
+
+```{r setup, include=FALSE, results='hide'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE, results='hide'}
+source("http://www.openintro.org/stat/data/arbuthnot.R")
+```
+
+```{r, include=FALSE, results='hide'}
+source("http://www.openintro.org/stat/data/present.R")
+```
+
+
+# **Chapter 1 Summary-**
+
+
+
+### **Treatment Group:**
+The group given the treatment or procedure.
+
+### **Control Group:**
+The group given nothing or a placebo.
+
+
+### **Statistical Signigicance:**
+To determine if the difference is statistically significant,Statistical tools are used to evaluate whether the observed difference is likely due to random variation or a real effect.
+
+
+### **Generilization:**
+The study's result may not be generalizable to the entire populations due to the study's specific design. 
+
+### **Data Organization**
+**Data Matrix:** 
+A table where rows represent cases (e.g., loans, patients) and columns represent variables (e.g., interest rates, medical conditions).
+
+**Types of Variables:**
+
+**Numerical:** Can be measured and averaged (e.g., unemployment rate).
+
+**Categorical:** Represents categories (e.g., state names, education levels).
+Ordinal: Categorical with a natural order (e.g., education levels).
+
+### **Association vs. Causation:**
+
+**Association:** 
+When two variables show a connection (e.g., higher income may be associated with population growth).
+
+**Causation:**
+To determine if one variable causes changes in another, experiments are needed.
+
+### **Data Collection Methods**
+**Observational Studies:**
+Researchers observe without intervening. These can show associations but not causal relationships.
+
+**Experiments:**
+Researchers intervene and assign treatments to test causal relationships. Randomized experiments are the gold standard.
+
+**Sampling Techniques:**
+
+- **Simple Random Sampling:** Each case has an equal chance of selection.
+
+- **Stratified Sampling:** Population divided into strata, then sampled within each stratum.
+
+- **Cluster Sampling:** Population divided into clusters; a sample of clusters is selected.
+
+- **Multistage Sampling:** Combines sampling methods at various stages.
+
+### **Experimental Design Principles**
+
+**Controlling:** Ensuring only the treatment effects are measured by controlling other variables.
+
+**Randomization:** Assigning cases randomly to groups to prevent bias.
+
+**Replication:** Using a large sample or repeating studies to verify results.
+
+**Blocking:** Grouping similar cases into blocks and randomizing within each block to control for variables.
+
+### **Blinding in Experiments**
+
+**Blind Study:** Participants do not know their group assignment to prevent bias.
+
+**Double-Blind Study:** Both participants and researchers are unaware of group assignments to avoid bias from both sides.
+
+**Placebo Effect:** The phenomenon where participants experience improvements due to the belief they are receiving treatment.
+
+\newpage
+
+# **Chapter 2 Summary-**
+
+**Scatterplots:** Used for visualizing the relationship between two numerical variables. They show each case as a point in a two-dimensional space, and can reveal patterns, trends, or non-linear relationships.
+
+**Dot Plots:** Useful for displaying the distribution of a single numerical variable. Each observation is represented by a dot, which can be stacked if multiple observations have the same value.
+
+**Histograms:** Display the distribution of a numerical variable by grouping data into bins and plotting the count or frequency of observations within each bin. They help identify the shape of the data distribution (e.g., skewness, modality).
+
+**Skewness:** A distribution is right skewed if it has a long tail on the right side, and left skewed if it has a long tail on the left side. Symmetric distributions have roughly equal tails on both sides.
+
+### **Mean and Variability:**
+
+**Mean:** The average value, computed as the sum of all observations divided by the number of observations. It represents the central point of the distribution.
+
+**Variance:** Measures the average squared deviation from the mean. The square root of the variance is the standard deviation, which provides a sense of the average distance of observations from the mean.
+
+**Standard Deviation:** Helps understand the spread of the data; roughly 68% of data fall within one standard deviation of the mean, and about 95% within two standard deviations.
+
+### **Box Plots:**
+
+**Median:** The middle value when data is sorted.
+
+**Interquartile Range (IQR):** The range between the first quartile (25th percentile) and third quartile (75th percentile), representing the middle 50% of the data.
+
+**Whiskers:** Extend from the quartiles to capture data within 1.5 × IQR from the quartiles. Points beyond this range are considered outliers.
+
+**Transformations:** Applying transformations like logarithms can help address skewness and outliers, making data more suitable for modeling and analysis.
+
+### **Categorical Data Summarization**
+
+**Contingency Tables:** Summarize the relationship between two categorical variables, showing counts of occurrences for each combination of categories.
+
+**Bar Plots:** Display counts or proportions of each category within a single categorical variable. Proportional bar plots show the fraction of observations within each category.
+
+**Stacked and Side-by-Side Bar Plots:** Compare categorical variables across different groups. Stacked bar plots show the composition of categories within each group, while side-by-side bar plots compare categories directly.
+
+**Mosaic Plots:** Visualize the relationship between two categorical variables by dividing a rectangle into areas proportional to the counts in each category combination.
+
+**Pie Charts:** Show the relative proportions of categories within a single variable. While useful for high-level overviews, bar plots are often preferred for detailed comparisons.
+
+### **Comparing Groups**
+
+**Side-by-Side Box Plots:** Compare distributions of a numerical variable across groups. Each box plot represents a group, allowing comparison of medians, quartiles, and outliers.
+
+**Hollow Histograms:** Compare numerical distributions across groups by overlaying histograms' outlines on the same plot.
+
+### **Purpose of Hypothesis Testing:**
+To determine if an observed effect or difference in data is likely due to chance or if it indicates a real effect.
+
+**Formulating Hypotheses:**
+Null Hypothesis (H0): Assumes no effect or no difference. It suggests that any observed difference is due to random chance.
+
+**Alternative Hypothesis (HA):** Proposes that there is an effect or difference, and the observed data are not due to chance alone.
+
+### **Assessing the Null Hypothesis:**
+Evaluate if the observed data are consistent with H0.
+If the observed effect is consistent with what would be expected under H0, the null hypothesis is not rejected.
+Simulation Approach:
+
+### **Objective:** 
+To assess if the observed effect or difference could occur by random chance under the null hypothesis.
+
+### **Method: **
+Generate multiple simulated datasets assuming H0 is true and compare the observed effect to the distribution of effects in the simulations.
+### **Interpreting Simulation Results:**
+
+**Common Results:** If the observed effect is frequently seen in simulations, it suggests that the effect could be due to chance (supporting H0).
+
+**Rare Results:** If the observed effect is rarely seen, it suggests that the effect may be real and not due to chance (supporting HA).
+
+**Drawing Conclusions:**
+Reject H0: If there is strong evidence against H0 based on the simulations, conclude that the observed effect is likely real.
+
+**Fail to Reject H0:** If there is not strong evidence against H0, conclude that there is not enough evidence to support the presence of a real effect.
+
+**Statistical Inference:**
+
+**Objective:** To make informed decisions about the presence of effects or differences based on data and models.
+
+**Tools:** Statistical tests and simulations help assess the likelihood of observed results occurring by chance.
+
+### **Error Considerations:**
+
+**Type I Error:** Incorrectly rejecting H0 when it is true (false positive).
+
+**Type II Error:** Failing to reject H0 when HA is true (false negative).
+
+### **Future Topics:**
+
+**Model Selection:** Methods for choosing the best statistical model based on data.
+
+**Probability and Theory:** Fundamental concepts for understanding and applying statistical inference.
+\newpage
+
+
+# **Chapter 1**
+
+## **Exercise Problems:**
+
+### **Exercise 1:**
+
+The command needed to extract just the counts of girls baptized from the given data set would be:
+
+```{r echo=TRUE, results='hide'}
+arbuthnot$girls
+```
+
+### **Exercise 2:**
+
+The trend occurs after the year 1660 where there is a steady increase in the amount of girls baptized. This could be a result of many things including possible religious beliefs in an area or law set in place.
+
+### **Exercise 3:**
+
+The trend is same to that of the girls, after the year 1660 there is a steady increase in the number of boys baptized.
+
+```{r echo=FALSE, results='hide'}
+plot(x = arbuthnot$year, y = arbuthnot$boys, type = "l")
+```
+
+## **OnYourOwn Problems:**
+
+### **Problem 1: *What years are included in this data set? What are the dimensions of the data frame and what are the variable or column names?***
+
+This data set spans from 1940 to 2002. The data frame consists of 63 rows and 3 columns. The columns are named “year”, “boys”, and “girls”.
+
+### **Problem 2: *How do these counts compare to Arbuthnot’s? Are they on a similar scale?***
+
+
+The numbers in this data set are significantly higher but maintain a similar scale to those in Arbuthnot’s data.
+
+### **Problem 3: *Make a plot that displays the boy-to-girl ratio for every year in the data set. What do you see? Does Arbuthnot’s observation about boys being born in greater proportion than girls hold up in the U.S.? Include the plot in your response.***
+
+
+The plot suggests that Arbuthnot’s observation holds true to some extent in the U.S., as the points representing boys and girls each year generally lie to the right of the vertical axis, indicating a higher number of boys each year.
+```{r echo=FALSE}
+plot(x = present$boys, y = present$girls)
+```
+
+
+### **Problem 4: *In what year did we see the most total number of births in the U.S.?***
+
+The highest number of births occurred in 1961, with a total of 4,268,326 births.
