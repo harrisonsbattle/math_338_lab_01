@@ -1,0 +1,142 @@
+---
+title: "Lab1 Chapter 2 Exercises"
+author: "Jas Singh"
+---
+
+# Lab 1 Chapter 2 Exercises
+
+```{r,include=FALSE}
+source("http://www.openintro.org/stat/data/cdc.R")
+```
+
+## Exercise 1
+
+#### How many cases are there in this data set? How many variables? For each variable, identify its data type (e.g. categorical, discrete).
+
+There are 20,000 cases in this data set, with 9 variables.
+
+- genhlth - categorical
+- exerany - discrete
+- hlthplan - discrete
+- smoke100 - discrete
+- height - continuous
+- weight - continuous
+- wtdesire - continuous
+- age - discrete
+- gender - categorical  
+  
+(All discrete and continuous variables are numerical)
+
+## Exercise 2
+
+#### Create a numerical summary for height and age, and compute the interquartile range for each. Compute the relative frequency distribution for gender and exerany. How many males are in the sample? What proportion of the sample reports being in excellent health?
+  
+##### Height Numerical Summary:
+``` {r echo=FALSE}
+summary(cdc$height)
+```
+Height Interquartile Range: 6
+  
+  
+##### Age Numerical Summary:
+``` {r echo = FALSE}
+summary(cdc$age)
+```
+Age Interquartile Range: 26
+  
+##### Gender Relative Frequency Distribution:
+``` {r echo = FALSE}
+table(cdc$gender)/20000
+```
+About 48% of the sample are male, and 52% are female.
+  
+##### Past-month Exercise (Exerany) Relative Frequency Distribution:
+``` {r echo = FALSE}
+table(cdc$exerany)/20000
+```
+About 25% of the sample exercised in the past month, while 75% did not.
+  
+There are 9569 males in the sample.  
+23%, or 4657 people out of the sample of 20,000 are in excellent health.
+  
+## Exercise 3
+  
+#### What does the mosaic plot reveal about smoking habits and gender?
+  
+The mosaic plot displaying smoking habits and genders of the sample reveals that more males have smokes at least 100 cigarettes in their lives than women.
+  
+## Exercise 4
+  
+#### Create a new object called under23_and_smoke that contains all observations of respondents under the age of 23 that have smoked 100 cigarettes in their lifetime. Write the command you used to create the new object as the answer to this exercise.
+  
+`under23_and_smoke <- subset(cdc, age < 23 & smoke100 == 1)`
+  
+## Exercise 5
+  
+#### What does this box plot show? Pick another categorical variable from the data set and see how it relates to BMI. List the variable you chose, why you might think it would have a relationship to BMI, and indicate what the figure seems to suggest.
+  
+This box plot compares the body mass index's (bmi's) and the general health's of the sample in the hopes of visualisizing a relationship.
+  
+I chose to compare the sample's bmi's with the variable "exerany", which tells us if an individual has exercised in the past month. The result did not offer me a conclusion, as both plots seemed to be very similar.
+  
+# Lab 1 Chapter 2 On Your Own
+  
+#### 1. Make a scatterplot of weight versus desired weight. Describe the relationship between these two variables.
+  
+The data seems to be most concentrated between 100-250 pounds, indicating that most people who weigh between 100-250 pounds want to stay in between that range. Notably, many people who are currently over 200 pounds have aspirations to be at/under 250 pounds.
+  
+#### 2. Let’s consider a new variable: the difference between desired weight (wtdesire) and current weight (weight). Create this new variable by subtracting the two columns in the data frame and assigning them to a new object called wdiff.
+  
+`wdiff <- (cdc$wtdesire - cdc$weight)`
+  
+#### 3. What type of data is wdiff? If an observation wdiff is 0, what does this mean about the person’s weight and desired weight. What if wdiff is positive or negative?
+  
+The variable wdiff tells us how many pounds the individual has to gain or lose to reach their desired weight from their current weight. If an observation wdiff is 0, that means that the individual does not want to lose or gain any pounds from where they are now. For example, if my desired weight is 200 pounds, and I currently weigh 200 pounds, my "wdiff" would be 0, as my desired weight (200) minus my current weight (200) equals 0. If my desired weight is 200 pounds, and I currently weigh 150 pounds, my "wdiff" would be positive 50. Positive values mean that the individual needs to gain pounds in order to achieve their desired weight. On the other hand, if my desired weight was 170 pounds and I was 300 pounds, my "wdiff" would be -130, a negative value. Negative values represent that the inidividual needs to lose that amount of pounds in order to achieve their desired weight.
+  
+#### 4. Describe the distribution of wdiff in terms of its center, shape, and spread, including any plots you use. What does this tell us about how people feel about their current weight?
+  
+``` {r echo = FALSE}
+cdc$wdiff <- (cdc$wtdesire - cdc$weight)
+data_numeric <- as.numeric(cdc$wdiff)
+barplot(cdc$wdiff)
+boxplot(data_numeric)
+summary(cdc$wdiff)
+hist(cdc$wdiff, breaks = 50)
+```
+  
+The box plot and bar plots tell me that the spread of weight needed to reach their desired weights was less on the gaining side; more people wanted to lose weight. This becomes abundantly clear through the histogram, where it shows about 12,000 people wanting to lose about 20-30 pounds.
+  
+#### 5. Using numerical summaries and a side-by-side box plot, determine if men tend to view their weight differently than women.
+  
+From the data, I can conclude that men do view their weight differently than women. Using a box plot comparing weight desired to gender, it is clear that men averagely want to weigh less than what men do.
+  
+#### 6. Now it’s time to get creative. Find the mean and standard deviation of weight and determine what proportion of the weights are within one standard deviation of the mean.
+  
+Mean of weight:  
+```
+mean(cdc$weight)
+```
+  
+Mean: 169.683
+  
+
+Standard deviation of weight:
+```
+sd(cdc$weight)
+```
+  
+Standard Deviation: 40.08097
+  
+
+Find the range of weights we need:  
+169.683 - 40.08097 = 129.602
+  
+169.683 + 40.08097 = 209.764
+  
+Subset this data:  
+`within_1_sd <- subset(cdc, weight > 129.602 & weight < 209.764)`
+  
+Find how many rows and divide by sample population (20,000):  
+14200/20000 = 0.71
+  
+71% of the weights are within one standard deviation of the mean.
