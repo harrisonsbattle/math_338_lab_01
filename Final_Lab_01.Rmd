@@ -22,6 +22,9 @@ source("http://www.openintro.org/stat/data/arbuthnot.R")
 source("http://www.openintro.org/stat/data/present.R")
 ```
 
+```{r, include=FALSE, results='hide'}
+source("http://www.openintro.org/stat/data/cdc.R")
+```
 
 # **Chapter 1 Summary-**
 
@@ -34,7 +37,7 @@ The group given the treatment or procedure.
 The group given nothing or a placebo.
 
 
-### **Statistical Signigicance:**
+### **Statistical Significance:**
 To determine if the difference is statistically significant,Statistical tools are used to evaluate whether the observed difference is likely due to random variation or a real effect.
 
 
@@ -231,11 +234,56 @@ The numbers in this data set are significantly higher but maintain a similar sca
 
 
 The plot suggests that Arbuthnot’s observation holds true to some extent in the U.S., as the points representing boys and girls each year generally lie to the right of the vertical axis, indicating a higher number of boys each year.
-```{r echo=FALSE}
-plot(x = present$boys, y = present$girls)
+
+```{r echo=FALSE, results='hide'}
+present$ratio <- present$boys / present$girls
+
+plot(present$year, present$ratio, type = "l")
+
 ```
 
 
 ### **Problem 4: *In what year did we see the most total number of births in the U.S.?***
 
 The highest number of births occurred in 1961, with a total of 4,268,326 births.
+
+
+# **Chapter 2**
+
+## **Exercise Problems:**
+
+### **Exercise 1:**
+
+## **OnYourOwn Problems:**
+
+### **Problem 1: *Make a scatter plot of weight versus desired weight. Describe the relationship between these two variables.***
+
+Using the following command will give you a scatter plot of the weight versus desired weight data:
+
+```{r echo=TRUE, results='hide'}
+plot(x = cdc$weight, y = cdc$wtdesire)
+```
+
+
+### **Problem 2: *Let’s consider a new variable: the difference between desired weight (wtdesire) and current weight (weight). Create this new variable by subtracting the two columns in the data frame and assigning them to a new object called wdiff.***
+```{r}
+wdiff <- (cdc$wtdesire - cdc$weight)
+```
+
+### **Problem 3: *What type of data is wdiff? If an observation wdiff is 0, what does this mean about the person’s weight and desired weight. What if wdiff is positive or negative?***
+
+wdiff is an integer variable, representing numerical discrete data. If wdiff is 0, it means the individual’s desired weight is equal to their current weight. A positive wdiff indicates that the desired weight is higher than the current weight, while a negative wdiff means the desired weight is lower than the current weight.
+
+### **Problem 4: *Describe the distribution of wdiff in terms of its center, shape, and spread, including any plots you use. What does this tell us about how people feel about their current weight?***
+
+```{r echo=FALSE}
+hist(wdiff)
+```
+
+The distribution of wdiff has the center/mean at around -14, with a non-symmetric unimodal, and a narrow distribution for its spread. This tells me that most people feel that they would like their weight to be smaller but still around their current weight and not by large margins.
+
+### **Problem 5: *Using numerical summaries and a side-by-side box plot, determine if men tend to view their weight differently than women.***
+
+Men do tend to view their weight differently than women, the min desired weight for males is 77 while it is 68 for female and the max desired weight for men is 680 while its 350 for females. The men also have a higher median and mean when it comes to desired weight than females. When the difference between each genders weight and desired weight are put side by side, it is mostly similar but males tend to have more cases that want more weight. With this info its safe to assume that males tend to want a bit more body weight than females.
+
+### **Problem 6: *...***
