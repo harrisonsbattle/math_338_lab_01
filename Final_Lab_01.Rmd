@@ -1,6 +1,7 @@
 ---
 title: "Lab 01"
-author: "Group 7"
+author: "(Group 7)
+Harrison Battle, Drian Salazar, Brian Franco, Jas Singh"
 date: "09/12/2024"
 output:
   html_document:
@@ -213,7 +214,7 @@ The trend occurs after the year 1660 where there is a steady increase in the amo
 
 ### **Exercise 3:**
 
-The trend is same to that of the girls, after the year 1660 there is a steady increase in the number of boys baptized.
+The trend is same to that of the girls after the year 1660 there is a steady increase in the number of boys baptized.
 
 ```{r echo=FALSE, results='hide'}
 plot(x = arbuthnot$year, y = arbuthnot$boys, type = "l")
@@ -248,11 +249,76 @@ plot(present$year, present$ratio, type = "l")
 The highest number of births occurred in 1961, with a total of 4,268,326 births.
 
 
+_____________________________________________________________________________________________________________________\
+
+
 # **Chapter 2**
 
 ## **Exercise Problems:**
 
-### **Exercise 1:**
+### **Exercise 1: *How many cases are there in this data set? How many variables? For each variable, identify its data type (e.g. categorical, discrete).***
+
+There are 20,000 cases in this data set, with 9 variables.
+
+- **genhlth** - categorical
+- **exerany** - discrete
+- **hlthplan** - discrete
+- **smoke100** - discrete
+- **height** - continuous
+- **weight** - continuous
+- **wtdesire** - continuous
+- **age** - discrete
+- **gender** - categorical  
+  
+(All discrete and continuous variables are numerical)
+
+### **Exercise 2: *Create a numerical summary for height and age, and compute the interquartile range for each. Compute the relative frequency distribution for gender and exerany. How many males are in the sample? What proportion of the sample reports being in excellent health?***
+  
+**Height Numerical Summary:**
+``` {r echo=FALSE}
+summary(cdc$height)
+```
+Height Interquartile Range: 6
+  
+  
+**Age Numerical Summary:**
+``` {r echo = FALSE}
+summary(cdc$age)
+```
+Age Interquartile Range: 26
+  
+**Gender Relative Frequency Distribution:**
+``` {r echo = FALSE}
+table(cdc$gender)/20000
+```
+About 48% of the sample are male, and 52% are female.
+  
+**Past-month Exercise (Exerany) Relative Frequency Distribution:**
+``` {r echo = FALSE}
+table(cdc$exerany)/20000
+```
+About 25% of the sample exercised in the past month, while 75% did not.
+  
+There are 9569 males in the sample.  
+23%, or 4657 people out of the sample of 20,000 are in excellent health.
+  
+## **Exercise 3: *What does the mosaic plot reveal about smoking habits and gender?***
+  
+The mosaic plot displaying smoking habits and genders of the sample reveals that more males have smokes at least 100 cigarettes in their lives than women.
+  
+## **Exercise 4: *Create a new object called under23_and_smoke that contains all observations of respondents under the age of 23 that have smoked 100 cigarettes in their lifetime. Write the command you used to create the new object as the answer to this exercise.***
+
+``` {r echo = TRUE}
+under23_and_smoke <- subset(cdc, age < 23 & smoke100 == 1)
+```
+
+  
+## **Exercise 5: *What does this box plot show? Pick another categorical variable from the data set and see how it relates to BMI. List the variable you chose, why you might think it would have a relationship to BMI, and indicate what the figure seems to suggest.***
+  
+This box plot compares the body mass index's (bmi's) and the general health's of the sample in the hopes of visualisizing a relationship.
+  
+I chose to compare the sample's bmi's with the variable "exerany", which tells us if an individual has exercised in the past month. The result did not offer me a conclusion, as both plots seemed to be very similar.
+  
 
 ## **OnYourOwn Problems:**
 
@@ -286,4 +352,36 @@ The distribution of wdiff has the center/mean at around -14, with a non-symmetri
 
 Men do tend to view their weight differently than women, the min desired weight for males is 77 while it is 68 for female and the max desired weight for men is 680 while its 350 for females. The men also have a higher median and mean when it comes to desired weight than females. When the difference between each genders weight and desired weight are put side by side, it is mostly similar but males tend to have more cases that want more weight. With this info its safe to assume that males tend to want a bit more body weight than females.
 
-### **Problem 6: *...***
+### **Problem 6: *Now it’s time to get creative. Find the mean and standard deviation of weight and determine what proportion of the weights are within one standard deviation of the mean.***
+  
+**Mean of weight: ** 
+
+``` {r echo = TRUE, eval = FALSE}
+mean(cdc$weight)
+```
+  
+**Mean:** 169.683
+  
+
+**Standard deviation of weight:**
+
+``` {r echo = TRUE, eval = FALSE}
+sd(cdc$weight)
+```
+
+  
+**Standard Deviation:** 40.08097
+  
+
+**Find the range of weights we need:  **
+169.683 - 40.08097 = 129.602
+  
+169.683 + 40.08097 = 209.764
+  
+**Subset this data:  **
+`within_1_sd <- subset(cdc, weight > 129.602 & weight < 209.764)`
+  
+**Find how many rows and divide by sample population (20,000): ** 
+14200/20000 = 0.71
+  
+71% of the weights are within one standard deviation of the mean.
